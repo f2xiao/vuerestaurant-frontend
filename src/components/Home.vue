@@ -1,11 +1,11 @@
 <template>
   <v-container class='home' style="height:85vh">
     <v-row  align="center" class="fill-height">
-       <v-col align-self="end" cols="sm-6" order-sm='2'>
-          <h2 class="text-h4 sh font-italic">the most authenticated Southern Chinese Food</h2>
+      <v-col align-self="end" cols="sm-6">
+           <h2 class="text-md-h4 sh font-italic">the most authenticated Southern Chinese Food</h2>
       </v-col>
-      <v-col align-self="start" cols="sm-6">
-          <h1  class="text-h1 ph">Oriental Pearl</h1>
+       <v-col align-self="start" cols="sm-6" order-sm='2'> 
+          <h1  class="text-md-h1 ph">Oriental Pearl</h1>
       </v-col>
     </v-row>
         

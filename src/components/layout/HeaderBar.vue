@@ -1,24 +1,23 @@
 <template>
-  <v-app-bar flat color="primary">
+  <v-app-bar app flat color="primary" hide-on-scroll>
       <v-app-bar-title>
-        <v-img src="/logo.png" height="48" width="64"></v-img>
+        <v-img src="@/assets/logo.png" contain max-height="48" max-width="64"></v-img>
       </v-app-bar-title>
-     <v-btn to="home">
+     <v-btn to="home" elevation="0" plain depressed class="pa-0" :ripple="ripple">
       home
      </v-btn>
-     <v-btn to="menu">
+     <v-btn to="menu" elevation="0" plain depressed class="pa-0" :ripple="ripple">
       menu
      </v-btn>
-     |
-      <v-btn icon to="api/search">
+     <v-spacer></v-spacer>
+      <v-btn icon to="/search" :ripple="ripple">
         <v-icon>mdi-magnify</v-icon>
      </v-btn>
-     <v-btn icon to="/account">
+     <v-btn icon to="/account" :ripple="ripple">
          <v-icon>mdi-account</v-icon>
      </v-btn>
-     <v-btn icon to="/cart">
+     <v-btn icon to="/cart" :ripple="ripple">
         <v-icon>mdi-cart</v-icon>
-        <v-spacer></v-spacer>
         <span>0</span>
      </v-btn>
   </v-app-bar>
@@ -28,6 +27,11 @@
 import { mapGetters } from 'vuex';
 export default {
     name: 'header-bar',
+    data(){
+      return {
+        ripple: false
+      }
+    }
   //   computed: {
   //   ...mapGetters({
   //     cartTotalQuantity:'cart/cartTotalQuantity'
@@ -35,3 +39,8 @@ export default {
   // }
 }
 </script>
+<style>
+.v-btn--plain:not(.v-btn--active):not(.v-btn--loading):not(:focus):not(:hover) .v-btn__content {
+    opacity: 1;
+}
+</style>
