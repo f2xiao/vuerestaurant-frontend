@@ -9,8 +9,9 @@
 </template>
 
 <script>
-import HeaderBar from './components/layout/HeaderBar.vue'
 import FooterBar from './components/layout/FooterBar.vue'
+import HeaderBar from './components/layout/HeaderBar.vue'
+
 export default {
   components: { HeaderBar, FooterBar },
   name: 'App',

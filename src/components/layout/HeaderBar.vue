@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar shaped flat color="primary">
+  <v-app-bar flat color="primary">
       <v-app-bar-title>
         <v-img src="/logo.png" height="48" width="64"></v-img>
       </v-app-bar-title>
