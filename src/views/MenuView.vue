@@ -1,8 +1,8 @@
 <template>
   <div class="menu-view">
-    <v-container>
+    <v-container class="py-8">
       <v-row>
-        <v-col cols="lg-4 md-6 sm-12" v-for="product in productItems" :key="product.id">
+        <v-col cols="lg-3" md="4" sm="6" v-for="product in productItems" :key="product.id">
           <menu-card :item="product"></menu-card>
         </v-col>
       </v-row>

@@ -13,9 +13,9 @@
         variant="plain"
         size="small"
       >
-      <v-icon>
-        {{icon}}
-      </v-icon>
+        <v-icon>
+          {{icon}}
+        </v-icon>
 
       </v-btn>
     </div>
