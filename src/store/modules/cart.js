@@ -1,7 +1,7 @@
 import axios from 'axios';
 const state = {
-    items: [],
-    checkoutStatus: null
+  items: [],
+  checkoutStatus: null,
 }
 const mutations = {
   SET_CART_ITEMS (state, payload) {
@@ -30,7 +30,7 @@ const mutations = {
   },
   setCheckoutStatus (state, status) {
       state.checkoutStatus = status
-  }
+  },
 }
 
 const actions = {
@@ -51,7 +51,7 @@ const actions = {
       // remove 1 item from stock
       commit('products/decrementProductInventory', { id: product.id }, { root: true })
     }
-  }
+  },
 }
 
 const getters = {
@@ -65,7 +65,7 @@ const getters = {
     return state.items.reduce((acc, item) => {
       return item.quantity + acc;
     }, 0);
-  }
+  },
 }
 
 export default {
