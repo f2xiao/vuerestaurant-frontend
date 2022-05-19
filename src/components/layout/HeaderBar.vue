@@ -18,7 +18,7 @@
      </v-btn>
      <v-btn icon to="/cart" :ripple="ripple">
         <v-icon>mdi-cart</v-icon>
-        <span>0</span>
+        <span>{{cartTotalQuantity}}</span>
      </v-btn>
   </v-app-bar>
 </template>
@@ -31,12 +31,12 @@ export default {
       return {
         ripple: false
       }
-    }
-  //   computed: {
-  //   ...mapGetters({
-  //     cartTotalQuantity:'cart/cartTotalQuantity'
-  //   })
-  // }
+    },
+    computed: {
+    ...mapGetters({
+      cartTotalQuantity:'cart/cartTotalQuantity'
+    })
+  }
 }
 </script>
 <style>

@@ -23,14 +23,16 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['productItems'])
+    ...mapGetters({
+      productItems: 'products/productItems'
+    })
   },
   created() {
-    this.$store.dispatch('getProductItems');
+    this.$store.dispatch('products/getProductItems');
   },
   beforemounted() {
     if(isLoggedIn){
-      this.$store.dispatch("getSavedCartItems");
+      this.$store.dispatch("cart/getSavedCartItems");
     }
   }
 }
