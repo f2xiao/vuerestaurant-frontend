@@ -25,28 +25,42 @@
    <v-navigation-drawer
       v-model="drawer"
       absolute
-      bottom
       temporary
     >
       <v-list
         nav
         dense
       >
-        <v-list-item-group
-          v-model="group"
-          active-class="text--accent-4"
-        >
-          <v-list-item>
-            <v-list-item-title>Foo</v-list-item-title>
-          </v-list-item>
-        </v-list-item-group>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title v-if="!items.length">Add some items to the cart!</v-list-item-title>
+             <v-list-item-title v-if="items.length">Total Quantity: <span>{{ cartTotalQuantity }}</span> </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-divider></v-divider>
+        <v-list-item v-for="item in items" :key="item.title">
+          <template>
+            <v-list-item-content>
+              <v-list-item-title v-text="item.title" class="text-uppercase"></v-list-item-title>
+              <v-list-item-subtitle v-text="`quantity: ${item.quantity}`"></v-list-item-subtitle>
+            </v-list-item-content>
+            <v-list-item-action>
+              <v-btn icon @click="incrementItemQuantity(item)">+</v-btn>
+              <v-btn icon @click="decrementItemQuantity(item)">-</v-btn>
+            </v-list-item-action>
+          </template>
+        </v-list-item>
+         <v-list-item>
+          <!-- <v-btn :disabled="!items.length" @click="checkout">Checkout  (<span>${{ total }}</span>) </v-btn> -->
+          <v-btn :disabled="!items.length">Checkout  (<span>${{ total }}</span>) </v-btn>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
   </div>
 </template>
 
 <script>
-import { mapGetters} from 'vuex';
+import { mapGetters, mapMutations} from 'vuex';
 export default {
   name: 'header-bar',
   data(){
@@ -59,14 +73,16 @@ export default {
   computed: {
     ...mapGetters({
       cartTotalQuantity:'cart/cartTotalQuantity',
+      items:'cart/cartProducts',
+      total:'cart/cartTotalPrice'
     }),
   },
-  watch: {
-      group () {
-        this.drawer = false
-      },
-    },
- 
+  methods: {
+    ...mapMutations({
+      incrementItemQuantity: 'cart/incrementItemQuantity',
+      decrementItemQuantity: 'cart/decrementItemQuantity'
+    })
+  },
 }
 </script>
 <style>

@@ -5,7 +5,7 @@ const state = {
 }
 const mutations = {
   SET_CART_ITEMS (state, payload) {
-    state.cartItems = payload;
+    state.items = payload;
   },
   pushProductToCart(state,{ id, price, title }) {
     state.items.push({
@@ -49,7 +49,7 @@ const actions = {
         commit('incrementItemQuantity', cartItem)
       }
       // remove 1 item from stock
-      commit('products/decrementProductInventory', { id: product.id }, { root: true })
+      // commit('products/decrementProductInventory', { id: product.id }, { root: true })
     }
   },
 }
