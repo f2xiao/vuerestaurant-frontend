@@ -33,7 +33,7 @@
         <v-col  v-if="!items.length" class="mt-16">
           <p class="text-center">Add some items to the cart!</p>
           <p class="text-center">
-            <v-btn color=" primary">
+            <v-btn @click="group=!group" to="/menu" color=" primary">
               Order Now
             </v-btn>
           </p>
@@ -81,6 +81,11 @@ export default {
       drawer: false,
       group: null,
     }
+  },
+  watch: {
+    group () {
+      this.drawer = false
+    },
   },
   computed: {
     ...mapGetters({
