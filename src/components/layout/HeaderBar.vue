@@ -21,40 +21,52 @@
         <v-icon>mdi-cart</v-icon>
         <span>{{cartTotalQuantity}}</span>
      </v-btn>
-  </v-app-bar>
+    </v-app-bar>
+
    <v-navigation-drawer
       v-model="drawer"
-      absolute
       temporary
+      app
     >
-      <v-list
-        nav
-        dense
-      >
-        <v-list-item>
-          <v-list-item-content>
-            <v-list-item-title v-if="!items.length">Add some items to the cart!</v-list-item-title>
-             <v-list-item-title v-if="items.length">Total Quantity: <span>{{ cartTotalQuantity }}</span> </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-divider></v-divider>
-        <v-list-item v-for="item in items" :key="item.title">
-          <template>
-            <v-list-item-content>
-              <v-list-item-title v-text="item.title" class="text-uppercase"></v-list-item-title>
-              <v-list-item-subtitle v-text="`quantity: ${item.quantity}`"></v-list-item-subtitle>
-            </v-list-item-content>
-            <v-list-item-action>
-              <v-btn icon @click="incrementItemQuantity(item)">+</v-btn>
-              <v-btn icon @click="decrementItemQuantity(item)">-</v-btn>
-            </v-list-item-action>
-          </template>
-        </v-list-item>
-         <v-list-item>
-          <!-- <v-btn :disabled="!items.length" @click="checkout">Checkout  (<span>${{ total }}</span>) </v-btn> -->
-          <v-btn :disabled="!items.length">Checkout  (<span>${{ total }}</span>) </v-btn>
-        </v-list-item>
-      </v-list>
+    <v-container style="height: 100%">
+      <v-row style="height: 100%; margin: 0" align-content="space-between">
+        <v-col  v-if="!items.length" class="mt-16">
+          <p class="text-center">Add some items to the cart!</p>
+          <p class="text-center">
+            <v-btn color=" primary">
+              Order Now
+            </v-btn>
+          </p>
+          <v-divider></v-divider>
+        </v-col>
+        <v-col v-if="items.length">
+          <v-list
+            nav
+            dense
+          >
+          <v-list-item>
+            <v-list-item-title>Total items: {{cartTotalQuantity}}</v-list-item-title>
+          </v-list-item>
+          <v-divider></v-divider>
+            <v-list-item v-for="item in items" :key="item.title">
+              <template>
+                <v-list-item-content>
+                  <v-list-item-title v-text="item.title" class="text-uppercase"></v-list-item-title>
+                  <v-list-item-subtitle v-text="`quantity: ${item.quantity}`"></v-list-item-subtitle>
+                </v-list-item-content>
+                <v-list-item-action>
+                  <v-btn icon @click="incrementItemQuantity(item)">+</v-btn>
+                  <v-btn icon @click="decrementItemQuantity(item)">-</v-btn>
+                </v-list-item-action>
+              </template>
+            </v-list-item>
+          </v-list>
+
+        </v-col>
+        <v-col class="d-flex justify-center" style="border-top: 1px solid rgba(0, 0, 0, 0.12)">
+          <v-btn :disabled="!items.length">Checkout  (<span>${{ total }}</span>) </v-btn></v-col>
+      </v-row>
+    </v-container>
     </v-navigation-drawer>
   </div>
 </template>
@@ -88,5 +100,11 @@ export default {
 <style>
 .v-btn--plain:not(.v-btn--active):not(.v-btn--loading):not(:focus):not(:hover) .v-btn__content {
     opacity: 1;
+}
+.cart .v-list{
+  display :flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height:100%;
 }
 </style>
