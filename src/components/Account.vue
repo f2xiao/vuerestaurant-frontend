@@ -12,10 +12,8 @@
       >
         {{ item }}
       </v-tab>
-      <v-tab>
-        <v-btn  elevation="0" plain depressed class="pa-0" :ripple="ripple">
-      LOGOUT
-     </v-btn>
+      <v-tab link to="account">  
+        LOGOUT
       </v-tab>
     </v-tabs>
      
