@@ -19,7 +19,6 @@ export default {
   data(){
     return{
       isLoggedIn: false,
-      showCartPanel: false,
     }
   },
   computed: {

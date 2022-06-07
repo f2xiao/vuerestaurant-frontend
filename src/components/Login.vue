@@ -1,9 +1,6 @@
 <template>
 <v-card class="d-flex justify-center">
   <v-card class="d-flex flex-column justify-center pa-5">
-    <v-card-title>
-      <h1>My Account</h1>
-    </v-card-title>
     <v-card-text>
       <v-form>
         <v-text-field prepend-icon="mdi-account-circle" label="username" />
@@ -21,13 +18,7 @@
 
 <script>
 export default {
-  name:'Login',
-  data() {
-    return {
-      
-    }
-  },
-
+  name:'Login'
 }
 </script>
 
