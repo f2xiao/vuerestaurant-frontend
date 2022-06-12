@@ -2,7 +2,7 @@
 
 ## Disclaimer
 
-The code is MIT licensed, but the website UI design of the website is owned by me and can't be used without my permission. The copiright of the picture and logos art are owned by the original art designers, which is ditributed through canva.
+The code is MIT licensed, but the website UI design is original content by me and can't be used without my permission. The copiright of the picture and logos art are owned by the original art designers, which is ditributed through canva.
 
 ## Project setup
 ```
